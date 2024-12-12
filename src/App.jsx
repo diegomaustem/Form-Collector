@@ -1,6 +1,6 @@
 import "./App.css";
-import BadForm from "./components/BadForm";
+import GoodForm from "./components/GoodForm";
 
 export default function App() {
-  return <BadForm />;
+  return <GoodForm />;
 }
