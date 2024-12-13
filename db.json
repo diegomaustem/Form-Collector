@@ -1,10 +1,6 @@
 {
   "forms": [
     {
-      "Ol": "Oiee",
-      "id": "061c"
-    },
-    {
       "id": "bc7e",
       "name": "Diego Lima Brandão ",
       "email": "diego.maustem@gmail.com",
@@ -17,15 +13,6 @@
       "id": "e943",
       "name": "Diego Lima Brandão ",
       "email": "diego.maustem@gmail.com",
-      "password": "123456789",
-      "passwordConfirmation": "123456789",
-      "profession": "developer",
-      "privacyTerms": true
-    },
-    {
-      "id": "a59b",
-      "name": "Sr Rola",
-      "email": "rola@gmail.com",
       "password": "123456789",
       "passwordConfirmation": "123456789",
       "profession": "developer",
