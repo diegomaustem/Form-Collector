@@ -1,7 +1,19 @@
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import validator from "validator";
+import { useQueryClient, useMutation, useQuery } from "react-query";
+
+const endPoint = "http://localhost:3000/forms";
 
 export default function GoodForm() {
+  const { data, isLoading, error } = useQuery("forms", async () => {
+    return await axios.get(endPoint).then((response) => response.data);
+  });
+
+  if (error) {
+    console.log("Sorry error!", error.message);
+  }
+
   const {
     register,
     handleSubmit,
@@ -9,10 +21,21 @@ export default function GoodForm() {
     watch,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
   const watchPassword = watch("password");
+
+  const queryClient = useQueryClient();
+  const insertData = useMutation({
+    mutationFn: async (data) => {
+      await axios.post(endPoint, data);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["forms"] });
+    },
+  });
+
+  const onSubmit = (data) => {
+    insertData.mutate(data);
+  };
 
   return (
     <div className="app-container">
